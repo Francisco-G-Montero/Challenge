@@ -14,6 +14,11 @@ import android.content.pm.PackageManager
 import android.content.pm.PackageInfo
 import android.util.Base64
 import android.util.Log
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -29,19 +34,7 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         setupAuth()
-        try {
-            val info = packageManager.getPackageInfo(
-                "com.frommetoyou.interchallenge",
-                PackageManager.GET_SIGNATURES
-            )
-            for (signature in info.signatures) {
-                val md: MessageDigest = MessageDigest.getInstance("SHA")
-                md.update(signature.toByteArray())
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-            }
-        } catch (e: PackageManager.NameNotFoundException) {
-        } catch (e: NoSuchAlgorithmException) {
-        }
+        setupBottomNav()
     }
 
     override fun onResume() {
@@ -81,4 +74,17 @@ class MainActivity : AppCompatActivity() {
                     finish()
                 }
         }
+
+    private fun setupBottomNav() {
+        val navView: BottomNavigationView = mBinding.bottomNav
+        val navController = findNavController(R.id.hostFragment)
+
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.charactersFragment, R.id.eventsFragment
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+    }
 }
