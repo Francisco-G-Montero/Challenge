@@ -10,4 +10,6 @@
     <string name="home_events">Events</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail_appears_title">APPEARS IN THESE COMICS</string>
+    <string name="detail_desc_doesnt_exists">No description.</string>
 </resources>

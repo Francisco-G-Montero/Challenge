@@ -9,9 +9,11 @@
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/ic_superhero_disabled.xml" value="0.22135416666666666" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/ic_superhero_enabled.xml" value="0.22135416666666666" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/fragment_character_detail.xml" value="0.33" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/fragment_characters.xml" value="0.20520833333333333" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/fragment_events.xml" value="0.20520833333333333" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/item_character.xml" value="0.33" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/item_comic.xml" value="0.33" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20520833333333333" />
       </map>
     </option>
