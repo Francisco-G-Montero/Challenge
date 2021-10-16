@@ -4,14 +4,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.frommetoyou.interchallenge.core.entities.characters.CharacterResponse
-import com.frommetoyou.interchallenge.core.entities.events.Events
 import com.frommetoyou.interchallenge.core.entities.characters.Result
+import com.frommetoyou.interchallenge.core.entities.events.Events
 import com.frommetoyou.interchallenge.core.repository.CharactersRepository
 import com.frommetoyou.interchallenge.core.util.Resource
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class CharactersViewModel(
+
+class CharactersViewModel constructor(
     val charactersRepository: CharactersRepository
 ) : ViewModel() {
     val characters: MutableLiveData<Resource<CharacterResponse>> = MutableLiveData()
@@ -19,7 +20,7 @@ class CharactersViewModel(
     val toolbarTitle: MutableLiveData<String> = MutableLiveData()
     val character: MutableLiveData<Result> = MutableLiveData()
     var charactersResponse: CharacterResponse? = null
-    var charactersPage = 1
+    var charactersPage: Int = 1
 
     init {
         getCharacters()

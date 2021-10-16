@@ -2,30 +2,21 @@ package com.frommetoyou.interchallenge.feature_marvel.events_module.presentation
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModel
-import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModelProviderFactory
-import com.frommetoyou.interchallenge.core.repository.CharactersRepository
 import com.frommetoyou.interchallenge.core.util.Resource
 import com.frommetoyou.interchallenge.databinding.FragmentEventsBinding
+import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModel
 import com.frommetoyou.interchallenge.feature_marvel.events_module.adapters.EventsAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EventsFragment : Fragment() {
     private lateinit var mBinding: FragmentEventsBinding
-    val mViewModel: CharactersViewModel by lazy {
-        obtainViewModel(requireActivity(),
-            CharactersViewModel::class.java,
-            CharactersViewModelProviderFactory(CharactersRepository())
-        )
-    }
+    val mViewModel: CharactersViewModel by viewModel()
     private lateinit var mEventsAdapter: EventsAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -79,10 +70,4 @@ class EventsFragment : Fragment() {
     private fun showProgressBar(){
         mBinding.progressBar.visibility = View.GONE
     }
-
-    fun <T : ViewModel> obtainViewModel(owner: ViewModelStoreOwner,
-                                        viewModelClass: Class<T>,
-                                        viewmodelFactory: CharactersViewModelProviderFactory
-    ) =
-        ViewModelProvider(owner, viewmodelFactory).get(viewModelClass)
 }

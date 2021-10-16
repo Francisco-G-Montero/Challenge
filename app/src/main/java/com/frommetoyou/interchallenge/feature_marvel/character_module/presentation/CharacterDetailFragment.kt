@@ -1,32 +1,23 @@
 package com.frommetoyou.interchallenge.feature_marvel.character_module.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.frommetoyou.interchallenge.R
-import com.frommetoyou.interchallenge.feature_marvel.character_module.adapters.ComicAdapter
-import com.frommetoyou.interchallenge.core.repository.CharactersRepository
 import com.frommetoyou.interchallenge.databinding.FragmentCharacterDetailBinding
 import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModel
-import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModelProviderFactory
+import com.frommetoyou.interchallenge.feature_marvel.character_module.adapters.ComicAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class CharacterDetailFragment : Fragment() {
     private lateinit var mBinding: FragmentCharacterDetailBinding
-    val mViewModel: CharactersViewModel by lazy {
-        obtainViewModel(requireActivity(),
-            CharactersViewModel::class.java,
-            CharactersViewModelProviderFactory(CharactersRepository())
-        )
-    }
+    val mViewModel: CharactersViewModel by viewModel()
     private lateinit var mComicAdapter: ComicAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,7 +29,6 @@ class CharacterDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
         setupRecyclerView()
-
     }
 
     private fun setupViewModel() {
@@ -66,10 +56,4 @@ class CharacterDetailFragment : Fragment() {
         super.onDetach()
         mViewModel.setToolbarTitle(resources.getString(R.string.app_name))
     }
-
-    fun <T : ViewModel> obtainViewModel(owner: ViewModelStoreOwner,
-                                        viewModelClass: Class<T>,
-                                        viewmodelFactory: CharactersViewModelProviderFactory
-    ) =
-        ViewModelProvider(owner, viewmodelFactory).get(viewModelClass)
 }

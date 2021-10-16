@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="character_img_height">120dp</dimen>
-    <dimen name="character_padding_start">16dp</dimen>
+    <dimen name="character_padding_start">15dp</dimen>
     <dimen name="common_padding_min">8dp</dimen>
     <dimen name="character_name_size">25sp</dimen>
     <dimen name="character_card_radius">4dp</dimen>
@@ -23,4 +23,5 @@
     <dimen name="event_item_expanded_top">11dp</dimen>
     <dimen name="arrow_collapse_size">36dp</dimen>
     <dimen name="subtitle_size">21sp</dimen>
+    <dimen name="common_desc_size">14sp</dimen>
 </resources>

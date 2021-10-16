@@ -2,38 +2,28 @@ package com.frommetoyou.interchallenge.feature_marvel.character_module.presentat
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.Toast
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.frommetoyou.interchallenge.R
+import com.frommetoyou.interchallenge.core.entities.characters.Result
+import com.frommetoyou.interchallenge.core.util.Constants.Companion.QUERY_CHARACTERS_PAGE_SIZE
+import com.frommetoyou.interchallenge.core.util.Resource
+import com.frommetoyou.interchallenge.databinding.FragmentCharactersBinding
+import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModel
 import com.frommetoyou.interchallenge.feature_marvel.character_module.adapters.CharacterAdapter
 import com.frommetoyou.interchallenge.feature_marvel.character_module.adapters.OnClickListener
-import com.frommetoyou.interchallenge.databinding.FragmentCharactersBinding
-import com.frommetoyou.interchallenge.core.entities.characters.Result
-import com.frommetoyou.interchallenge.core.repository.CharactersRepository
-import com.frommetoyou.interchallenge.core.util.Constants.Companion.QUERY_PAGE_SIZE
-import com.frommetoyou.interchallenge.core.util.Resource
-import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModel
-import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModelProviderFactory
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharactersFragment : Fragment(), OnClickListener {
     private lateinit var mBinding: FragmentCharactersBinding
-    val mViewModel: CharactersViewModel by lazy {
-        obtainViewModel(
-            requireActivity(),
-            CharactersViewModel::class.java,
-            CharactersViewModelProviderFactory(CharactersRepository())
-        )
-    }
+    val mViewModel: CharactersViewModel by viewModel()
     private lateinit var mCharactersAdapter: CharacterAdapter
     private val TAG = "CharactersFragment"
 
@@ -59,7 +49,7 @@ class CharactersFragment : Fragment(), OnClickListener {
                     hideProgressBar()
                     response.data?.let { characterResponse ->
                         mCharactersAdapter.submitList(characterResponse.data.results.toList())
-                        val totalPages = characterResponse.data.total / QUERY_PAGE_SIZE + 2
+                        val totalPages = characterResponse.data.total / QUERY_CHARACTERS_PAGE_SIZE + 2
                         isLastPage = mViewModel.charactersPage == totalPages
                     }
                 }
@@ -76,13 +66,6 @@ class CharactersFragment : Fragment(), OnClickListener {
             }
         }
     }
-
-    fun <T : ViewModel> obtainViewModel(
-        owner: ViewModelStoreOwner,
-        viewModelClass: Class<T>,
-        viewmodelFactory: CharactersViewModelProviderFactory
-    ) =
-        ViewModelProvider(owner, viewmodelFactory).get(viewModelClass)
 
     private fun setupRecyclerView() {
         mCharactersAdapter = CharacterAdapter(this)
@@ -125,7 +108,7 @@ class CharactersFragment : Fragment(), OnClickListener {
             val isNotLoadingAndNotLastPage = !isLoading && !isLastPage
             val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
             val isNotAtBeggining = firstVisibleItemPosition >= 0
-            val isTotalMoreThanVisible = totalItemCount >= QUERY_PAGE_SIZE
+            val isTotalMoreThanVisible = totalItemCount >= QUERY_CHARACTERS_PAGE_SIZE
             val shouldPaginate = isNotLoadingAndNotLastPage &&
                     isAtLastItem &&
                     isNotAtBeggining &&

@@ -29,13 +29,17 @@
 
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/character_name_size"
                 android:text="Civil War"
                 android:layout_marginStart="@dimen/event_title_padding_start"
+                android:layout_marginEnd="@dimen/common_padding_default"
                 android:textColor="@color/character_name"
                 android:fontFamily="@font/roboto_condensed_regular"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ivPhoto"
                 app:layout_constraintTop_toTopOf="@+id/ivPhoto" />
             <TextView

@@ -15,9 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.frommetoyou.interchallenge.R
-import com.frommetoyou.interchallenge.feature_marvel.character_module.adapters.ComicAdapter
 import com.frommetoyou.interchallenge.core.entities.events.Result
 import com.frommetoyou.interchallenge.databinding.ItemEventBinding
+import com.frommetoyou.interchallenge.feature_marvel.character_module.adapters.ComicAdapter
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.ZoneId

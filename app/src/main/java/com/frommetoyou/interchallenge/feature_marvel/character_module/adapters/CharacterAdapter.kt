@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.frommetoyou.interchallenge.R
-import com.frommetoyou.interchallenge.databinding.ItemCharacterBinding
 import com.frommetoyou.interchallenge.core.entities.characters.Result
+import com.frommetoyou.interchallenge.databinding.ItemCharacterBinding
 
 class CharacterAdapter(private var listener: OnClickListener) :
     ListAdapter<Result, RecyclerView.ViewHolder>(SnapshotDiffCallback()) {
