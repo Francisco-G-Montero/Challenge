@@ -2,6 +2,7 @@
 
 * Tiempo de completitud: 13hs
 *  *Sólo creado para tema default, no para Oscuro-Dark*
+*  *KeyHash de facebook sólo para modo test*
 ------------------------------------
 ## Requerimientos mínimos
 * Lenguaje: Kotlin
