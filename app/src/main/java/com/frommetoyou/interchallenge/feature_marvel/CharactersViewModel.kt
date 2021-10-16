@@ -64,8 +64,8 @@ class CharactersViewModel constructor(
         return Resource.Error(response.message())
     }
 
-    fun setCharacterToDetail(character: Result) {
-        this.character.value = character
+    fun setCharacterToDetail(character2: Result) = viewModelScope.launch {
+        character.postValue(character2)
     }
 
     fun setToolbarTitle(title: String) {

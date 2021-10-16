@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -18,6 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class CharacterDetailFragment : Fragment() {
     private lateinit var mBinding: FragmentCharacterDetailBinding
     val mViewModel: CharactersViewModel by viewModel()
+
     private lateinit var mComicAdapter: ComicAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -41,6 +43,9 @@ class CharacterDetailFragment : Fragment() {
                 .centerCrop()
                 .into(mBinding.ivPhoto)
             mComicAdapter.submitList(character.comics.items)
+        }
+        mViewModel.characters.observe(viewLifecycleOwner) { response ->
+            Toast.makeText(context, "asdasd",Toast.LENGTH_SHORT).show()
         }
     }
 

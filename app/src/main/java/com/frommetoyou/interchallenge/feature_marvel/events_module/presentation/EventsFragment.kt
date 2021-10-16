@@ -68,6 +68,6 @@ class EventsFragment : Fragment() {
         mBinding.progressBar.visibility = View.GONE
     }
     private fun showProgressBar(){
-        mBinding.progressBar.visibility = View.GONE
+        mBinding.progressBar.visibility = View.VISIBLE
     }
 }
