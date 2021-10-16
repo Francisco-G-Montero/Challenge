@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/event_item_height"
             android:paddingStart="@dimen/event_item_start"
-            android:paddingBottom="@dimen/event_item_start"
             android:paddingTop="@dimen/event_item_start">
             <ImageView
                 android:id="@+id/ivPhoto"
@@ -43,11 +42,12 @@
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:text="9 de Agosto 2020"
                 android:textColor="@color/character_description"
                 android:layout_marginTop="@dimen/common_padding_min"
-                android:fontFamily="@font/roboto_condensed_regular"
+                android:lineSpacingExtra=".25dp"
+                android:fontFamily="@font/roboto"
                 app:layout_constraintStart_toStartOf="@+id/tvTitle"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
             <ImageButton
@@ -68,7 +68,6 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             app:motionInterpolator="linear"
-
             android:layout_marginTop="@dimen/event_item_expanded_top"
             android:layout_gravity="center">
 
@@ -78,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/comics_title_discuss"
                 android:fontFamily="@font/roboto_condensed_regular"
-                android:textSize="20sp"
+                android:textSize="@dimen/subtitle_size"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

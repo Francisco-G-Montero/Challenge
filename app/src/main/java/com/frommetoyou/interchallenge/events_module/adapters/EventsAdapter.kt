@@ -1,11 +1,13 @@
 package com.frommetoyou.interchallenge.events_module.adapters
 
 import android.content.Context
+import android.os.Build
 import android.transition.AutoTransition
 import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
@@ -21,8 +23,12 @@ import com.frommetoyou.interchallenge.core.entities.events.Events
 import com.frommetoyou.interchallenge.databinding.ItemEventBinding
 import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeFormatterBuilder
+import java.time.temporal.ChronoField
 import java.util.*
 
 class EventsAdapter() :
@@ -36,28 +42,20 @@ class EventsAdapter() :
         return ViewHolder(view)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val event = getItem(position)
         with(holder as ViewHolder) {
             binding.tvTitle.text = event.title
-            //binding.tvDate.text = SimpleDateFormat("EEEE, dd MMMM yyyy").format(event.end.)
-            // binding.tvDate.text = SimpleDateFormat("EEEE, dd MMMM yyyy").parse(event.end).toString()
 
-            event.end?.let {
-                val date = SimpleDateFormat("yyyy-MM-dd").parse(event.end)
-                binding.tvDate.text = date.toString()
+            event.start?.let {
+                val date = SimpleDateFormat("yyyy-MM-dd").parse(event.start)
+                val finalDate = SimpleDateFormat("dd 'de' MMMM, yyyy").format(date!!)
+                binding.tvDate.text = finalDate
             }
 
             //binding.tvDate.text = date.toString()
-            Glide.with(mContext)
-                .load(
-                    "${
-                        event.thumbnail.path.replace(
-                            "http",
-                            "https"
-                        )
-                    }.${event.thumbnail.extension}"
-                )
+            Glide.with(mContext).load("${event.thumbnail.path.replace("http", "https")}.${event.thumbnail.extension}")
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()
                 .into(binding.ivPhoto)
@@ -66,19 +64,26 @@ class EventsAdapter() :
                 adapter = mComicAdapter
                 layoutManager = LinearLayoutManager(mContext)
             }
-            event.comics.items?.let {
-                mComicAdapter.submitList(it)
-            }
+            event.comics.items?.let { mComicAdapter.submitList(it) }
             binding.btnExpand.setOnClickListener { expandComicList() }
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun extractTimestamp(date: String): Long {
+        val formatter = DateTimeFormatter.ofPattern("MM/dd/yy", Locale.ENGLISH)
+        return LocalDateTime.parse(date, formatter)
+            .atZone(ZoneId.systemDefault())
+            .toInstant().toEpochMilli()
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemEventBinding.bind(view)
         fun expandComicList() {
-            TransitionManager. beginDelayedTransition(binding.root, AutoTransition())
+            TransitionManager.beginDelayedTransition(binding.root, AutoTransition())
             binding.btnExpand.isActivated = !binding.btnExpand.isActivated
-            binding.clExpanded.visibility = if ( binding.btnExpand.isActivated ) View.VISIBLE else View.GONE
+            binding.clExpanded.visibility =
+                if (binding.btnExpand.isActivated) View.VISIBLE else View.GONE
         }
     }
 
