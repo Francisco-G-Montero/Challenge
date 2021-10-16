@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventsFragment"
-        android:name="com.frommetoyou.interchallenge.EventsFragment"
+        android:name="com.frommetoyou.interchallenge.events_module.presentation.EventsFragment"
         android:label="@string/home_events"
         tools:layout="@layout/fragment_events" />
     <fragment

@@ -15,4 +15,11 @@
     <dimen name="comic_item_height">88dp</dimen>
     <dimen name="comic_item_title_top">30dp</dimen>
     <dimen name="comic_item_title_end">19dp</dimen>
+    <dimen name="event_item_start">17dp</dimen>
+    <dimen name="event_item_height">120dp</dimen>
+    <dimen name="event_title_padding_start">33dp</dimen>
+    <dimen name="event_img_height">86dp</dimen>
+    <dimen name="event_expand_end">26dp</dimen>
+    <dimen name="event_item_expanded_top">28dp</dimen>
+    <dimen name="arrow_collapse_size">36dp</dimen>
 </resources>

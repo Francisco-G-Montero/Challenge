@@ -1,6 +1,6 @@
 package com.frommetoyou.interchallenge.character_module.adapters
 
-import com.frommetoyou.interchallenge.core.entities.Result
+import com.frommetoyou.interchallenge.core.entities.characters.Result
 
 
 interface OnClickListener {

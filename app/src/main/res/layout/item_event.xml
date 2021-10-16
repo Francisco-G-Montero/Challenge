@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="@dimen/common_padding_min"
+    app:cardCornerRadius="@dimen/character_card_radius"
+    android:id="@+id/cvContainer"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCollapsed"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/event_item_height"
+            android:paddingStart="@dimen/event_item_start"
+            android:paddingBottom="@dimen/event_item_start"
+            android:paddingTop="@dimen/event_item_start">
+            <ImageView
+                android:id="@+id/ivPhoto"
+                android:layout_width="@dimen/event_img_height"
+                android:layout_height="@dimen/event_img_height"
+                android:src="@drawable/event_image"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/character_name_size"
+                android:text="Civil War"
+                android:layout_marginStart="@dimen/event_title_padding_start"
+                android:textColor="@color/character_name"
+                android:fontFamily="@font/roboto_condensed_regular"
+                app:layout_constraintStart_toEndOf="@+id/ivPhoto"
+                app:layout_constraintTop_toTopOf="@+id/ivPhoto" />
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="9 de Agosto 2020"
+                android:textColor="@color/character_description"
+                android:layout_marginTop="@dimen/common_padding_min"
+                android:fontFamily="@font/roboto_condensed_regular"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            <ImageButton
+                android:id="@+id/btnExpand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_event_expand"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginEnd="@dimen/event_expand_end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clExpanded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:motionInterpolator="linear"
+
+            android:layout_marginTop="@dimen/event_item_expanded_top"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/tvDiscuss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comics_title_discuss"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewComics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDiscuss"
+                tools:listitem="@layout/item_comic"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

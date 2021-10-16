@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.frommetoyou.interchallenge.R
 import com.frommetoyou.interchallenge.databinding.ItemCharacterBinding
-import com.frommetoyou.interchallenge.core.entities.Result
+import com.frommetoyou.interchallenge.core.entities.characters.Result
 
 class CharacterAdapter(private var listener: OnClickListener) :
     ListAdapter<Result, RecyclerView.ViewHolder>(SnapshotDiffCallback()) {
@@ -39,7 +39,7 @@ class CharacterAdapter(private var listener: OnClickListener) :
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemCharacterBinding.bind(view)
         fun setListener(character: Result) {
-            binding.clContainer.setOnClickListener { listener.onClick(character) }
+            binding.clCollapsed.setOnClickListener { listener.onClick(character) }
         }
     }
 

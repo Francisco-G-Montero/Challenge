@@ -1,4 +1,4 @@
-package com.frommetoyou.interchallenge.core.entities
+package com.frommetoyou.interchallenge.core.entities.characters
 
 data class Events(
     val available: Int,

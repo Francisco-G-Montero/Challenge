@@ -1,6 +1,7 @@
 package com.frommetoyou.interchallenge.core.api
 
-import com.frommetoyou.interchallenge.core.entities.CharacterResponse
+import com.frommetoyou.interchallenge.core.entities.characters.CharacterResponse
+import com.frommetoyou.interchallenge.core.entities.events.Events
 import com.frommetoyou.interchallenge.core.util.Constants.Companion.API_KEY
 import com.frommetoyou.interchallenge.core.util.Constants.Companion.HASH
 import com.frommetoyou.interchallenge.core.util.Constants.Companion.TIMESTAMP
@@ -18,4 +19,13 @@ interface CharactersAPI {
         @Query("ts")
         ts: Int = TIMESTAMP,
     ): Response<CharacterResponse>
+    @GET("/v1/public/events")
+    suspend fun getEvents(
+        @Query("apikey")
+        apikey: String = API_KEY,
+        @Query("hash")
+        hash: String = HASH,
+        @Query("ts")
+        ts: Int = TIMESTAMP,
+    ): Response<Events>
 }
