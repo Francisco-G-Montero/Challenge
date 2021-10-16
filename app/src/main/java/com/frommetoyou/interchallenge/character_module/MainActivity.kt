@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
+import androidx.navigation.NavController
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.frommetoyou.interchallenge.databinding.ActivityMainBinding
@@ -22,12 +24,12 @@ import com.frommetoyou.interchallenge.character_module.presentation.CharactersVi
 import com.frommetoyou.interchallenge.character_module.presentation.CharactersViewModelProviderFactory
 import com.frommetoyou.interchallenge.core.repository.CharactersRepository
 
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mAuthListener: FirebaseAuth.AuthStateListener
     private var mFirebaseAuth: FirebaseAuth? = null
+    val mViewModel: CharactersViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +38,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
         setupAuth()
         setupBottomNav()
+        setupViewModel()
+    }
+
+    private fun setupViewModel() {
+        mViewModel.toolbarTitle.observe(this){
+            mBinding.toolbar.title = it
+        }
     }
 
     override fun onResume() {
@@ -83,6 +92,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNav(){
         mBinding.bottomNav.itemIconTintList = null
-        mBinding.bottomNav.setupWithNavController(findNavController(R.id.hostFragment))
+        val navController = findNavController(R.id.hostFragment)
+        mBinding.bottomNav.setupWithNavController(navController)
     }
 }
+

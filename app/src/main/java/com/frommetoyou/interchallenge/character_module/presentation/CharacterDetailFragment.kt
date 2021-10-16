@@ -12,11 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.frommetoyou.interchallenge.R
-import com.frommetoyou.interchallenge.character_module.adapters.CharacterAdapter
 import com.frommetoyou.interchallenge.character_module.adapters.ComicAdapter
 import com.frommetoyou.interchallenge.core.repository.CharactersRepository
 import com.frommetoyou.interchallenge.databinding.FragmentCharacterDetailBinding
-import com.frommetoyou.interchallenge.databinding.FragmentCharactersBinding
 
 
 class CharacterDetailFragment : Fragment() {
@@ -37,10 +35,13 @@ class CharacterDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
         setupRecyclerView()
+
     }
 
     private fun setupViewModel() {
         mViewModel.character.observe(viewLifecycleOwner){ character ->
+            mBinding.tvDescription.text = character.description.ifEmpty { resources.getString(R.string.detail_desc_doesnt_exists) }
+            mViewModel.setToolbarTitle(character.name.uppercase())
             Glide.with(requireContext())
                 .load("${character.thumbnail.path.replace("http","https")}.${character.thumbnail.extension}")
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -56,6 +57,11 @@ class CharacterDetailFragment : Fragment() {
             adapter = mComicAdapter
             layoutManager = LinearLayoutManager(activity)
         }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        mViewModel.setToolbarTitle(resources.getString(R.string.app_name))
     }
 
     fun <T : ViewModel> obtainViewModel(owner: ViewModelStoreOwner,

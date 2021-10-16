@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/character_name_size"
                 android:text="THANOS"
+                android:textAllCaps="true"
                 android:textColor="@color/character_name"
                 android:fontFamily="@font/roboto_condensed_regular"
                 app:layout_constraintStart_toStartOf="parent"

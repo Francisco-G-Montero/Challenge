@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".character_module.presentation.CharacterDetailFragment">
     
@@ -22,17 +23,18 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 android:src="@drawable/thanos"
-                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintDimensionRatio="1.2:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                 android:id="@+id/tvDescription"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_desc_doesnt_exists"
                 android:textSize="14sp"
+                android:gravity="center"
                 android:textColor="@color/character_description"
                 android:layout_marginTop="@dimen/detail_desc_top"
                 android:layout_marginStart="@dimen/detail_desc_start"
