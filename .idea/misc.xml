@@ -4,16 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/bottom_btn_selected_colors.xml" value="0.22135416666666666" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/ic_arrow_down.xml" value="0.21770833333333334" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/ic_arrow_up.xml" value="0.22135416666666666" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/ic_calendar.xml" value="0.22135416666666666" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/ic_event_expand.xml" value="0.22135416666666666" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/ic_hero.xml" value="0.22135416666666666" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/ic_superhero_disabled.xml" value="0.22135416666666666" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/drawable/ic_superhero_enabled.xml" value="0.22135416666666666" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/content_main.xml" value="0.24682971014492755" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/event_sheet.xml" value="0.25317028985507245" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/fragment_character_detail.xml" value="0.33" />
-        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/fragment_characters.xml" value="0.20520833333333333" />
-        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/fragment_events.xml" value="0.20520833333333333" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/fragment_characters.xml" value="0.33" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/fragment_events.xml" value="0.25" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/item_character.xml" value="0.33" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/item_comic.xml" value="0.33" />
+        <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/layout/item_event.xml" value="0.33" />
         <entry key="..\:/Android/Android projects/practice/InterChallenge/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20520833333333333" />
       </map>
     </option>

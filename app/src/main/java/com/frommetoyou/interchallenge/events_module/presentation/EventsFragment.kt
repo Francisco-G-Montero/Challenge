@@ -1,4 +1,4 @@
-package com.frommetoyou.interchallenge.character_module.presentation
+package com.frommetoyou.interchallenge.events_module.presentation
 
 import android.os.Bundle
 import android.util.Log
@@ -10,28 +10,28 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.frommetoyou.interchallenge.R
 import com.frommetoyou.interchallenge.character_module.adapters.CharacterAdapter
-import com.frommetoyou.interchallenge.character_module.adapters.OnClickListener
-import com.frommetoyou.interchallenge.databinding.FragmentCharactersBinding
-import com.frommetoyou.interchallenge.core.entities.characters.Result
+import com.frommetoyou.interchallenge.character_module.adapters.ComicAdapter
+import com.frommetoyou.interchallenge.character_module.presentation.CharactersViewModel
+import com.frommetoyou.interchallenge.character_module.presentation.CharactersViewModelProviderFactory
 import com.frommetoyou.interchallenge.core.repository.CharactersRepository
 import com.frommetoyou.interchallenge.core.util.Resource
+import com.frommetoyou.interchallenge.databinding.FragmentCharacterDetailBinding
+import com.frommetoyou.interchallenge.databinding.FragmentEventsBinding
+import com.frommetoyou.interchallenge.events_module.adapters.EventsAdapter
 
-class CharactersFragment : Fragment(), OnClickListener {
-    private lateinit var mBinding: FragmentCharactersBinding
+class EventsFragment : Fragment() {
+    private lateinit var mBinding: FragmentEventsBinding
     val mViewModel: CharactersViewModel by lazy {
         obtainViewModel(requireActivity(),
             CharactersViewModel::class.java,
             CharactersViewModelProviderFactory(CharactersRepository()))
     }
-    private lateinit var mCharactersAdapter: CharacterAdapter
-    private val TAG = "CharactersFragment"
+    private lateinit var mEventsAdapter: EventsAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        mBinding = FragmentCharactersBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        mBinding = FragmentEventsBinding.inflate(inflater, container, false)
         return mBinding.root
     }
 
@@ -40,14 +40,15 @@ class CharactersFragment : Fragment(), OnClickListener {
         setupViewModel()
         setupRecyclerView()
     }
+    private val TAG = "EventsFragment"
 
     private fun setupViewModel() {
-        mViewModel.characters.observe(viewLifecycleOwner){ response ->
+        mViewModel.events.observe(viewLifecycleOwner){ response ->
             when(response){
                 is Resource.Success -> {
                     hideProgressBar()
-                    response.data?.let { characterResponse ->
-                        mCharactersAdapter.submitList(characterResponse.data.results)
+                    response.data?.let { eventsResponse ->
+                        mEventsAdapter.submitList(eventsResponse.data.results)
                     }
                 }
                 is Resource.Error -> {
@@ -63,18 +64,17 @@ class CharactersFragment : Fragment(), OnClickListener {
             }
         }
     }
-    fun <T : ViewModel> obtainViewModel(owner: ViewModelStoreOwner,
-                                                 viewModelClass: Class<T>,
-                                                 viewmodelFactory: CharactersViewModelProviderFactory
-    ) =
-        ViewModelProvider(owner, viewmodelFactory).get(viewModelClass)
+
     private fun setupRecyclerView(){
-        mCharactersAdapter = CharacterAdapter(this)
+        //EVENTS
+        mEventsAdapter = EventsAdapter()
         mBinding.recyclerView.apply {
-            adapter = mCharactersAdapter
+            adapter = mEventsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
+
     }
+
     private fun hideProgressBar(){
         mBinding.progressBar.visibility = View.GONE
     }
@@ -82,9 +82,9 @@ class CharactersFragment : Fragment(), OnClickListener {
         mBinding.progressBar.visibility = View.GONE
     }
 
-    override fun onClick(character: Result) {
-        Toast.makeText(context, "Character", Toast.LENGTH_SHORT).show()
-        mViewModel.setCharacterToDetail(character)
-        findNavController().navigate(R.id.action_charactersFragment_to_characterDetailFragment2)
-    }
+    fun <T : ViewModel> obtainViewModel(owner: ViewModelStoreOwner,
+                                        viewModelClass: Class<T>,
+                                        viewmodelFactory: CharactersViewModelProviderFactory
+    ) =
+        ViewModelProvider(owner, viewmodelFactory).get(viewModelClass)
 }

@@ -1,6 +1,6 @@
-package com.frommetoyou.interchallenge.core.entities
+package com.frommetoyou.interchallenge.core.entities.events
 
-data class CharacterResponse(
+data class Events(
     val attributionHTML: String,
     val attributionText: String,
     val code: Int,
