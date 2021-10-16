@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="character_img_height">120dp</dimen>
+    <dimen name="character_padding_start">16dp</dimen>
+    <dimen name="common_padding_min">8dp</dimen>
+    <dimen name="character_name_size">24sp</dimen>
+    <dimen name="character_card_radius">4dp</dimen>
+    <dimen name="common_padding_default">16dp</dimen>
+</resources>

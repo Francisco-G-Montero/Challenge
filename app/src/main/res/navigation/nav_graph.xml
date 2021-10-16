@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.frommetoyou.interchallenge.CharactersFragment"
+        android:name="com.frommetoyou.interchallenge.character_module.presentation.CharactersFragment"
         android:label="@string/home_characters"
         tools:layout="@layout/fragment_characters" />
     <fragment
