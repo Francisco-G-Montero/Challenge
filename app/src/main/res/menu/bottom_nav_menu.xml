@@ -4,11 +4,11 @@
     <item
         android:id="@+id/charactersFragment"
         android:title="@string/home_characters"
-        android:icon="@drawable/ic_character"
+        android:icon="@drawable/ic_hero"
         app:showAsAction="never"/>
     <item
         android:id="@+id/eventsFragment"
         android:title="@string/home_events"
-        android:icon="@drawable/ic_event"
+        android:icon="@drawable/ic_calendar"
         app:showAsAction="never"/>
 </menu>
