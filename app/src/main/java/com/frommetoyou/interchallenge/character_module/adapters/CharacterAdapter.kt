@@ -32,6 +32,7 @@ class CharacterAdapter(private var listener: OnClickListener) :
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()
                 .into(binding.ivPhoto)
+            setListener(character)
         }
     }
 

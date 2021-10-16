@@ -6,4 +6,13 @@
     <dimen name="character_name_size">24sp</dimen>
     <dimen name="character_card_radius">4dp</dimen>
     <dimen name="common_padding_default">16dp</dimen>
+    <dimen name="detail_img_height">420dp</dimen>
+    <dimen name="detail_desc_start">53dp</dimen>
+    <dimen name="detail_desc_end">52dp</dimen>
+    <dimen name="detail_desc_top">21dp</dimen>
+    <dimen name="detail_appears_start">65dp</dimen>
+    <dimen name="detail_appears_top">43dp</dimen>
+    <dimen name="comic_item_height">88dp</dimen>
+    <dimen name="comic_item_title_top">30dp</dimen>
+    <dimen name="comic_item_title_end">19dp</dimen>
 </resources>

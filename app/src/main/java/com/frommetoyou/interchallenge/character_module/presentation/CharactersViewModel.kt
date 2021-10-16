@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.frommetoyou.interchallenge.core.entities.CharacterResponse
+import com.frommetoyou.interchallenge.core.entities.Result
 import com.frommetoyou.interchallenge.core.repository.CharactersRepository
 import com.frommetoyou.interchallenge.core.util.Resource
 import kotlinx.coroutines.launch
@@ -13,6 +14,7 @@ class CharactersViewModel(
     val charactersRepository: CharactersRepository
 ) : ViewModel() {
     val characters : MutableLiveData<Resource<CharacterResponse>> = MutableLiveData()
+    val character : MutableLiveData<Result> = MutableLiveData()
     val charactersPage = 1
 
     init {
@@ -31,5 +33,9 @@ class CharactersViewModel(
             }
         }
         return Resource.Error(response.message())
+    }
+
+    fun setCharacterToDetail(character: Result){
+        this.character.value = character
     }
 }
