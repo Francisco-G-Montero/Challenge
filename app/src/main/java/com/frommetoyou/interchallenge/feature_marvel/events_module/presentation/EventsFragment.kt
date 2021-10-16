@@ -1,4 +1,4 @@
-package com.frommetoyou.interchallenge.events_module.presentation
+package com.frommetoyou.interchallenge.feature_marvel.events_module.presentation
 
 import android.os.Bundle
 import android.util.Log
@@ -11,22 +11,20 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.frommetoyou.interchallenge.character_module.adapters.CharacterAdapter
-import com.frommetoyou.interchallenge.character_module.adapters.ComicAdapter
-import com.frommetoyou.interchallenge.character_module.presentation.CharactersViewModel
-import com.frommetoyou.interchallenge.character_module.presentation.CharactersViewModelProviderFactory
+import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModel
+import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModelProviderFactory
 import com.frommetoyou.interchallenge.core.repository.CharactersRepository
 import com.frommetoyou.interchallenge.core.util.Resource
-import com.frommetoyou.interchallenge.databinding.FragmentCharacterDetailBinding
 import com.frommetoyou.interchallenge.databinding.FragmentEventsBinding
-import com.frommetoyou.interchallenge.events_module.adapters.EventsAdapter
+import com.frommetoyou.interchallenge.feature_marvel.events_module.adapters.EventsAdapter
 
 class EventsFragment : Fragment() {
     private lateinit var mBinding: FragmentEventsBinding
     val mViewModel: CharactersViewModel by lazy {
         obtainViewModel(requireActivity(),
             CharactersViewModel::class.java,
-            CharactersViewModelProviderFactory(CharactersRepository()))
+            CharactersViewModelProviderFactory(CharactersRepository())
+        )
     }
     private lateinit var mEventsAdapter: EventsAdapter
 

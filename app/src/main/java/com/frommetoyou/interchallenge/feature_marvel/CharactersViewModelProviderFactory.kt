@@ -1,4 +1,4 @@
-package com.frommetoyou.interchallenge.character_module.presentation
+package com.frommetoyou.interchallenge.feature_marvel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

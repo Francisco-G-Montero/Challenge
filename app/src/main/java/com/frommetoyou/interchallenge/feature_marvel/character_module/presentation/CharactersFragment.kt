@@ -1,4 +1,4 @@
-package com.frommetoyou.interchallenge.character_module.presentation
+package com.frommetoyou.interchallenge.feature_marvel.character_module.presentation
 
 import android.os.Bundle
 import android.util.Log
@@ -15,14 +15,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.frommetoyou.interchallenge.R
-import com.frommetoyou.interchallenge.character_module.adapters.CharacterAdapter
-import com.frommetoyou.interchallenge.character_module.adapters.OnClickListener
+import com.frommetoyou.interchallenge.feature_marvel.character_module.adapters.CharacterAdapter
+import com.frommetoyou.interchallenge.feature_marvel.character_module.adapters.OnClickListener
 import com.frommetoyou.interchallenge.databinding.FragmentCharactersBinding
 import com.frommetoyou.interchallenge.core.entities.characters.Result
 import com.frommetoyou.interchallenge.core.repository.CharactersRepository
-import com.frommetoyou.interchallenge.core.util.Constants
 import com.frommetoyou.interchallenge.core.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.frommetoyou.interchallenge.core.util.Resource
+import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModel
+import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModelProviderFactory
 
 class CharactersFragment : Fragment(), OnClickListener {
     private lateinit var mBinding: FragmentCharactersBinding

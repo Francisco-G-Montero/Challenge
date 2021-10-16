@@ -20,4 +20,14 @@
         <item name="android:textSize">20sp</item>
         <item name="titleCentered">true</item>
     </style>
+    <style name="SignInTheme" parent="FirebaseUI">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="fontFamily">@font/roboto_condensed_bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="FirebaseUI.Text">
+        <item name="fontFamily">@font/roboto_condensed_bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

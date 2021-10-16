@@ -1,4 +1,4 @@
-package com.frommetoyou.interchallenge.character_module.adapters
+package com.frommetoyou.interchallenge.feature_marvel.character_module.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

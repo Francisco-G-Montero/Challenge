@@ -1,16 +1,12 @@
-package com.frommetoyou.interchallenge.character_module.presentation
+package com.frommetoyou.interchallenge.feature_marvel
 
-import android.widget.AbsListView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.frommetoyou.interchallenge.core.entities.characters.CharacterResponse
 import com.frommetoyou.interchallenge.core.entities.events.Events
 import com.frommetoyou.interchallenge.core.entities.characters.Result
 import com.frommetoyou.interchallenge.core.repository.CharactersRepository
-import com.frommetoyou.interchallenge.core.util.Constants.Companion.QUERY_PAGE_SIZE
 import com.frommetoyou.interchallenge.core.util.Resource
 import kotlinx.coroutines.launch
 import retrofit2.Response

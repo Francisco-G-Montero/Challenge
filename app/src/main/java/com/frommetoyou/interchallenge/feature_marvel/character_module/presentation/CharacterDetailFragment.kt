@@ -1,4 +1,4 @@
-package com.frommetoyou.interchallenge.character_module.presentation
+package com.frommetoyou.interchallenge.feature_marvel.character_module.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,9 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.frommetoyou.interchallenge.R
-import com.frommetoyou.interchallenge.character_module.adapters.ComicAdapter
+import com.frommetoyou.interchallenge.feature_marvel.character_module.adapters.ComicAdapter
 import com.frommetoyou.interchallenge.core.repository.CharactersRepository
 import com.frommetoyou.interchallenge.databinding.FragmentCharacterDetailBinding
+import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModel
+import com.frommetoyou.interchallenge.feature_marvel.CharactersViewModelProviderFactory
 
 
 class CharacterDetailFragment : Fragment() {
@@ -22,7 +24,8 @@ class CharacterDetailFragment : Fragment() {
     val mViewModel: CharactersViewModel by lazy {
         obtainViewModel(requireActivity(),
             CharactersViewModel::class.java,
-            CharactersViewModelProviderFactory(CharactersRepository()))
+            CharactersViewModelProviderFactory(CharactersRepository())
+        )
     }
     private lateinit var mComicAdapter: ComicAdapter
 
