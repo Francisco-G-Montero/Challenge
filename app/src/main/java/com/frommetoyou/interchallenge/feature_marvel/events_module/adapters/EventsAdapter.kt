@@ -62,14 +62,6 @@ class EventsAdapter() :
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun extractTimestamp(date: String): Long {
-        val formatter = DateTimeFormatter.ofPattern("MM/dd/yy", Locale.ENGLISH)
-        return LocalDateTime.parse(date, formatter)
-            .atZone(ZoneId.systemDefault())
-            .toInstant().toEpochMilli()
-    }
-
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemEventBinding.bind(view)
         fun expandComicList() {

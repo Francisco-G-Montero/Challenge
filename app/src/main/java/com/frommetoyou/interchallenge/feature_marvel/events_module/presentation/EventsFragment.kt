@@ -16,10 +16,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EventsFragment : Fragment() {
     private lateinit var mBinding: FragmentEventsBinding
-    val mViewModel: CharactersViewModel by viewModel()
+    private val mViewModel: CharactersViewModel by viewModel()
     private lateinit var mEventsAdapter: EventsAdapter
+    private val TAG = "EventsFragment"
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         mBinding = FragmentEventsBinding.inflate(inflater, container, false)
         return mBinding.root
     }
@@ -29,7 +30,6 @@ class EventsFragment : Fragment() {
         setupViewModel()
         setupRecyclerView()
     }
-    private val TAG = "EventsFragment"
 
     private fun setupViewModel() {
         mViewModel.events.observe(viewLifecycleOwner){ response ->

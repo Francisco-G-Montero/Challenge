@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.frommetoyou.interchallenge.R
 import com.frommetoyou.interchallenge.core.entities.characters.Item
 import com.frommetoyou.interchallenge.databinding.ItemComicBinding
+import java.text.SimpleDateFormat
 
 class ComicAdapter() :
     ListAdapter<Item, RecyclerView.ViewHolder>(SnapshotDiffCallback()) {
@@ -24,6 +25,7 @@ class ComicAdapter() :
         val comic = getItem(position)
         with(holder as ViewHolder) {
             binding.tvTitle.text = comic.name
+            binding.tvYear.text = comic.name.substringAfter("(").substringBefore(")")
         }
     }
 

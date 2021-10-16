@@ -13,4 +13,8 @@
     <string name="detail_appears_title">APPEARS IN THESE COMICS</string>
     <string name="detail_desc_doesnt_exists">No description.</string>
     <string name="comics_title_discuss">COMICS TO DISCUSS</string>
+    <string name="custom_facebook">Facebook Login</string>
+    <string name="custom_email">Email Login</string>
+    <string name="auth_tos">https://github.com/Francisco-G-Montero?tab=repositories</string>
+    <string name="auth_privacy">https://github.com/Francisco-G-Montero/Challenge</string>
 </resources>

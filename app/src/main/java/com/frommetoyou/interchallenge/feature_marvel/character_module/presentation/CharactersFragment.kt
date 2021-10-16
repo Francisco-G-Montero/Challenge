@@ -90,7 +90,7 @@ class CharactersFragment : Fragment(), OnClickListener {
     var isLoading = false
     var isLastPage = false
     var isScrolling = false
-    var scrollListener = object : RecyclerView.OnScrollListener() {
+    private var scrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
             if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {

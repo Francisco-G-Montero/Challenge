@@ -22,12 +22,14 @@
     </style>
     <style name="SignInTheme" parent="FirebaseUI">
         <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/teal_200</item>
         <item name="fontFamily">@font/roboto_condensed_bold</item>
         <item name="android:textAlignment">center</item>
-    </style>
-    <style name="FirebaseUI.Text">
-        <item name="fontFamily">@font/roboto_condensed_bold</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+
     </style>
 
 </resources>
