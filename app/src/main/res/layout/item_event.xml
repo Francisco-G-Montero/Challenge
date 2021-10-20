@@ -22,7 +22,6 @@
                 android:id="@+id/ivPhoto"
                 android:layout_width="@dimen/event_img_height"
                 android:layout_height="@dimen/event_img_height"
-                android:src="@drawable/event_image"
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
