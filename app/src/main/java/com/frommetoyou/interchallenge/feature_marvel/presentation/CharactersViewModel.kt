@@ -45,8 +45,8 @@ class CharactersViewModel @Inject constructor(
         }
     }
 
-    fun getEvents() = viewModelScope.launch {
-        events.postValue(Resource.Loading())
+    fun getEvents() = viewModelScope.launch(Dispatchers.IO) {
+        events.postValue(Resource.Loading() )
         val response = marvelUseCases.getEvents()
         events.postValue(handleEventsResponse(response))
     }
