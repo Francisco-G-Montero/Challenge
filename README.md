@@ -13,7 +13,7 @@
 * ViewModel con LiveData
 
 ## Deseables
-* Inyección de dependencias. Sugerencia: Koin
+* Inyección de dependencias. 
 * Navigation
 * Data binding
 ---------------------------------
