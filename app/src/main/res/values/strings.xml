@@ -17,4 +17,5 @@
     <string name="custom_email">Email Login</string>
     <string name="auth_tos">https://github.com/Francisco-G-Montero?tab=repositories</string>
     <string name="auth_privacy">https://github.com/Francisco-G-Montero/Challenge</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

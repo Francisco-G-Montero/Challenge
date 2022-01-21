@@ -1,8 +1,7 @@
 package com.frommetoyou.interchallenge.feature_marvel.domain.repository
 
-import com.frommetoyou.interchallenge.feature_marvel.domain.model.characters.CharacterResponse
-import com.frommetoyou.interchallenge.feature_marvel.domain.model.events.Events
-import kotlinx.coroutines.flow.Flow
+import com.frommetoyou.interchallenge.feature_marvel.data.model.characters.CharacterResponse
+import com.frommetoyou.interchallenge.feature_marvel.data.model.events.Events
 import retrofit2.Response
 
 interface CharacterRepository {

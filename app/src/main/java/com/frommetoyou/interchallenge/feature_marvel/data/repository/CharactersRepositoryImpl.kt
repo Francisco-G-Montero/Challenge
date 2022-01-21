@@ -1,7 +1,7 @@
 package com.frommetoyou.interchallenge.feature_marvel.data.repository
 
-import com.frommetoyou.interchallenge.feature_marvel.data.data_source.CharactersAPI
-import com.frommetoyou.interchallenge.feature_marvel.domain.model.characters.CharacterResponse
+import com.frommetoyou.interchallenge.feature_marvel.data.datasource.CharactersAPI
+import com.frommetoyou.interchallenge.feature_marvel.data.model.characters.CharacterResponse
 import com.frommetoyou.interchallenge.feature_marvel.domain.repository.CharacterRepository
 import retrofit2.Response
 
