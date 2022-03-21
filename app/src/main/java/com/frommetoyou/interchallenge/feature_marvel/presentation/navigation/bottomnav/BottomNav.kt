@@ -3,18 +3,19 @@ package com.frommetoyou.interchallenge.feature_marvel.presentation.navigation.bo
 import androidx.compose.animation.Crossfade
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.currentBackStackEntryAsState
 import com.frommetoyou.interchallenge.R
+import com.frommetoyou.interchallenge.feature_marvel.presentation.navigation.InterChallengeNavigationActions
 
 @Composable
-fun BottomNav(navController: NavController) {
+fun BottomNav(
+    navigationActions: InterChallengeNavigationActions,
+    currentRoute: String
+) {
     val items = listOf(
         BottomNavItem.Characters,
         BottomNavItem.Events,
@@ -22,28 +23,11 @@ fun BottomNav(navController: NavController) {
     BottomNavigation(
         backgroundColor = colorResource(id = R.color.white),
     ) {
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
         items.forEach { item ->
             val isSelected = currentRoute == item.screen_route
             BottomNavigationItem(
                 icon = {
-                    Crossfade(targetState = isSelected) { isSelected ->
-                        when(isSelected){
-                            true -> Icon(
-                                painterResource(id =
-                               item.iconSelected),
-                                contentDescription = item.title,
-                                tint = Color.Unspecified
-                            )
-                            false -> Icon(
-                                painterResource(id =
-                                item.icon),
-                                contentDescription = item.title,
-                                tint = Color.Unspecified
-                            )
-                        }
-                    }
+                    GetNavigationIconButton(isSelected, item)
                 },
                 label = {
                     Text(
@@ -55,16 +39,35 @@ fun BottomNav(navController: NavController) {
                 alwaysShowLabel = true,
                 selected = isSelected,
                 onClick = {
-                    navController.navigate(item.screen_route) {
-                        navController.graph.startDestinationRoute?.let { screen_route ->
-                            popUpTo(screen_route) {
-                                saveState = true
-                            }
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
+                    navigationActions.navigateToSpecifiedRoute(item.screen_route)
                 },
+            )
+        }
+    }
+}
+
+@Composable
+private fun GetNavigationIconButton(
+    isSelected: Boolean,
+    item: BottomNavItem
+) {
+    Crossfade(targetState = isSelected) {
+        when (it) {
+            true -> Icon(
+                painterResource(
+                    id =
+                    item.iconSelected
+                ),
+                contentDescription = item.title,
+                tint = Color.Unspecified
+            )
+            false -> Icon(
+                painterResource(
+                    id =
+                    item.iconUnselected
+                ),
+                contentDescription = item.title,
+                tint = Color.Unspecified
             )
         }
     }

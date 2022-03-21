@@ -13,10 +13,12 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
+import com.frommetoyou.interchallenge.R
 import com.frommetoyou.interchallenge.feature_marvel.data.model.characters.Item
 import com.frommetoyou.interchallenge.feature_marvel.presentation.extensions.getThumbnailPath
 import com.frommetoyou.interchallenge.feature_marvel.presentation.ui.states.ToolbarState
@@ -24,10 +26,14 @@ import com.frommetoyou.interchallenge.feature_marvel.presentation.ui.theme.divid
 import com.frommetoyou.interchallenge.feature_marvel.presentation.viewmodel.CharactersViewModel
 import com.google.accompanist.flowlayout.FlowRow
 
+object CharacterDetailRouteArguments {
+    const val CHARACTER_ID_ARGUMENT = "characterId"
+}
+
 @ExperimentalFoundationApi
 @Composable
 fun CharacterDetailScreen(
-    characterId: String?,
+    characterId: String?, //No se utiliza, pero queda de ejemplo para pasar un argument desde el Navigation Graph
     viewModel: CharactersViewModel,
     toolbarState: MutableState<ToolbarState>,
     navController: NavController
@@ -68,7 +74,7 @@ fun CharacterDetailScreen(
                 Text(
                     modifier = Modifier
                         .padding(top = 43.dp, start = 65.dp, end = 65.dp),
-                    text = "APPEARS IN THESE COMICS",
+                    text = stringResource(id = R.string.detail_appears_title),
                     style = MaterialTheme.typography.subtitle1,
                     fontSize = 20.sp,
                     color = Color.Black

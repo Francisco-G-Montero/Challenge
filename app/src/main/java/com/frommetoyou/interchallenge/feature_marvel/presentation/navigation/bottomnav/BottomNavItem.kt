@@ -4,7 +4,7 @@ import com.frommetoyou.interchallenge.R
 
 sealed class BottomNavItem(
     var title: String,
-    var icon: Int,
+    var iconUnselected: Int,
     var iconSelected: Int,
     var screen_route: String
 ) {

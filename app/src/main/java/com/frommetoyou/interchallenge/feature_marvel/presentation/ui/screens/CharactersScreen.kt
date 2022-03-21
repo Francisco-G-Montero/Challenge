@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,6 +23,7 @@ import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.frommetoyou.interchallenge.feature_marvel.data.model.characters.MarvelCharacter
 import com.frommetoyou.interchallenge.feature_marvel.presentation.extensions.getThumbnailPath
+import com.frommetoyou.interchallenge.feature_marvel.presentation.navigation.InterChallengeNavigationActions
 import com.frommetoyou.interchallenge.feature_marvel.presentation.viewmodel.CharactersViewModel
 import java.util.*
 
@@ -79,6 +81,9 @@ fun CharacterListItem(
     navController: NavController,
     viewModel: CharactersViewModel,
 ) {
+    val navigationActions = remember(navController){
+        InterChallengeNavigationActions(navController)
+    }
     Row(
         modifier = modifier
             .padding(top = 8.dp, start = 8.dp, end = 8.dp),
@@ -91,7 +96,8 @@ fun CharacterListItem(
             shape = RoundedCornerShape(4.dp),
             onClick = {
                 viewModel.setCharacterToDetail(character)
-                navController.navigate("CharacterDetailScreen")
+                //navController.navigate("CharacterDetailScreen")
+                navigationActions.navigateToCharacterDetail()
             }
         ) {
             Row() {
