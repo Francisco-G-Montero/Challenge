@@ -1,15 +1,7 @@
 package com.frommetoyou.interchallenge
 
 import android.app.Application
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
+import dagger.hilt.android.HiltAndroidApp
 
-class App: Application() {
-    override fun onCreate() {
-        super.onCreate()
-        startKoin {
-            androidContext(this@App)
-            modules(listOf(appModule))
-        }
-    }
-}
+@HiltAndroidApp
+class App: Application()

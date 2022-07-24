@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.frommetoyou.interchallenge.feature_marvel.character_module.presentation.CharactersFragment"
+        android:name="com.frommetoyou.interchallenge.feature_marvel.presentation.character_module.presentation.CharactersFragment"
         android:label="@string/home_characters"
         tools:layout="@layout/fragment_characters" >
         <action
@@ -20,12 +20,12 @@
     </fragment>
     <fragment
         android:id="@+id/eventsFragment"
-        android:name="com.frommetoyou.interchallenge.feature_marvel.events_module.presentation.EventsFragment"
+        android:name="com.frommetoyou.interchallenge.feature_marvel.presentation.events_module.presentation.EventsFragment"
         android:label="@string/home_events"
         tools:layout="@layout/fragment_events" />
     <fragment
         android:id="@+id/characterDetailFragment2"
-        android:name="com.frommetoyou.interchallenge.feature_marvel.character_module.presentation.CharacterDetailFragment"
+        android:name="com.frommetoyou.interchallenge.feature_marvel.presentation.character_module.presentation.CharacterDetailFragment"
         android:label="fragment_character_detail"
         tools:layout="@layout/fragment_character_detail" />
 </navigation>

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InterChallenge">
         <activity
-            android:name="com.frommetoyou.interchallenge.feature_marvel.MainActivity"
+            android:name="com.frommetoyou.interchallenge.feature_marvel.presentation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
